@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: hsl(24, 100%, 41%);
+      margin-bottom: 10px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .item {
+      background: hsl(0, 0%, 100%);
+      border: 2px solid rgb(243, 156, 18);
+      border-radius: 10px;
+      padding: 15px;
+      transition: 0.3s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .item h3 {
+      margin: 5px 0;
+      color: #333;
+    }
+    .item p {
+      color: #777;
+      font-size: 14px;
+    }
+    .price {
+      font-weight: bold;
+      color: #27ae60;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e67e22;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d35400;
+    }
+    .special {
+      border: 3px solid red !important;
+      background: #fff0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍽️ Our Restaurant Menu</h1>
+  <p>Welcome! Here are some delicious items for you.</p>
+
+  <div class="menu">
+    <div class="item" id="pizza">
+      <h3>Pizza</h3>
+      <p>Cheesy delight with toppings</p>
+      <p class="price">₹250</p>
+    </div>
+    <div class="item" id="burger">
+      <h3>Burger</h3>
+      <p>Juicy and tasty with fries</p>
+      <p class="price">₹150</p>
+    </div>
+    <div class="item" id="pasta">
+      <h3>Pasta</h3>
+      <p>Italian style creamy pasta</p>
+      <p class="price">₹200</p>
+    </div>
+    <div class="item" id="icecream">
+      <h3>Ice Cream</h3>
+      <p>Sweet and chilled dessert</p>
+      <p class="price">₹100</p>
+    </div>
+  </div>
+
+  <button onclick="highlightSpecial()">Show Today’s Special</button>
+
+  <script>
+    function highlightSpecial() {
+      // Clear old special
+      document.querySelectorAll(".item").forEach(item => {
+        item.classList.remove("special");
+      });
+
+      // Pick random item
+      const items = ["pizza", "burger", "pasta", "icecream"];
+      const random = items[Math.floor(Math.random() * items.length)];
+
+      // Highlight special
+      document.getElementById(random).classList.add("special");
+      alert("Today's Special is: " + random.toUpperCase());
+    }
+  </script>
+</body>
+</html>
