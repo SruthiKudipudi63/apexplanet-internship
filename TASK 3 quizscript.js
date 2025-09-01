@@ -1,18 +1,18 @@
 const quizzes = [
   {
-    title: "⚙️ Mechanical Quiz",
+    title: "Science Quiz",
     questions: [
-      { q: "Which law states that stress is directly proportional to strain within the elastic limit?", options: ["Pascal’s Law", "Hooke’s Law", "Boyle’s Law", "Newton’s Law"], answer: "Hooke’s Law" },
-      { q: "In a four-stroke engine, the power stroke occurs during:", options: ["Intake stroke", "Compression stroke", "Power stroke", "Exhaust stroke"], answer: "Power stroke" },
-      { q: "The efficiency of an ideal Otto cycle depends on:", options: ["Fuel type", "Compression ratio", "Temperature only", "Cylinder size"], answer: "Compression ratio" }
+      { q: "What planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter"], answer: "Mars" },
+      { q: "What is the chemical symbol for water?", options: ["H2O", "O2", "CO2"], answer: "H2O" },
+      { q: "What gas do plants absorb?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen"], answer: "Carbon Dioxide" }
     ]
   },
   {
-    title: "💻 Technical Quiz",
+    title: "Sports Quiz",
     questions: [
-      { q: "Which data structure uses the principle of LIFO (Last In, First Out)?", options: ["Queue", "Stack", "Linked List", "Tree"], answer: "Stack" },
-      { q: "Which of the following is NOT a programming language?", options: ["Python", "Java", "HTML", "C++"], answer: "HTML" },
-      { q: "In computer networks, IP address 192.168.1.1 belongs to:", options: ["Public IP range", "Private IP range", "Loopback address", "Multicast address"], answer: "Private IP range" }
+      { q: "How many players are on a football (soccer) team?", options: ["9", "11", "12"], answer: "11" },
+      { q: "Which country hosted the 2016 Olympics?", options: ["China", "Brazil", "Japan"], answer: "Brazil" },
+      { q: "In tennis, what is the term for zero score?", options: ["Love", "Nil", "Zero"], answer: "Love" }
     ]
   }
 ];
@@ -24,45 +24,43 @@ let history = JSON.parse(localStorage.getItem("quizHistory")) || [];
 
 function loadQuestion() {
   const quiz = quizzes[currentQuizIndex];
+  document.getElementById("quiz-title").textContent = quiz.title;
+
   const question = quiz.questions[currentQuestionIndex];
   document.getElementById("question-title").textContent = question.q;
 
+  // progress bar
+  const progressPercent = ((currentQuestionIndex) / quiz.questions.length) * 100;
+  document.getElementById("progress-bar").style.width = progressPercent + "%";
+
   const optionsContainer = document.getElementById("options-container");
   optionsContainer.innerHTML = "";
-
-  const letters = ["A", "B", "C", "D"];
-  question.options.forEach((option, index) => {
+  question.options.forEach(option => {
     const btn = document.createElement("button");
-    btn.className = "option-btn";
-    btn.innerHTML = `<span class="option-label">${letters[index]}</span> ${option}`;
+    btn.textContent = option;
     btn.onclick = () => checkAnswer(btn, option);
-        optionsContainer.appendChild(btn);
+    optionsContainer.appendChild(btn);
   });
 
-  document.getElementById("score-display").textContent = `Score: ${score}`;
+  document.getElementById("score-display").textContent = Score: ${score};
 }
 
 function checkAnswer(button, selected) {
   const correct = quizzes[currentQuizIndex].questions[currentQuestionIndex].answer;
-  const allButtons = document.querySelectorAll(".option-btn");
+  const buttons = document.querySelectorAll("#options-container button");
 
-
-  allButtons.forEach(btn => {
-    btn.disabled = true;
-    btn.classList.remove("selected", "correct", "wrong");
-    if (btn.textContent.includes(correct)) {
-      btn.classList.add("correct");
-    }
-  });
+  buttons.forEach(btn => btn.disabled = true);
 
   if (selected === correct) {
-    score += 1;
-    button.classList.add("selected");
+    button.classList.add("correct");
+    score++;
   } else {
     button.classList.add("wrong");
+    buttons.forEach(btn => {
+      if (btn.textContent === correct) btn.classList.add("correct");
+    });
   }
 
-  // Show next button
   document.getElementById("next-btn").style.display = "inline-block";
 }
 
@@ -80,16 +78,18 @@ function nextQuestion() {
 function showFinalScore() {
   document.getElementById("quiz-container").style.display = "none";
   document.getElementById("end-screen").style.display = "block";
-
-  const finalScore = `You scored ${score}/${quizzes[currentQuizIndex].questions.length}`;
+  const finalScore = You scored ${score}/${quizzes[currentQuizIndex].questions.length};
   document.getElementById("final-score").textContent = finalScore;
 
+  // update progress bar full
+  document.getElementById("progress-bar").style.width = "100%";
+
+  // Store in history
   history.push({
     quizTitle: quizzes[currentQuizIndex].title,
     score: finalScore,
     date: new Date().toLocaleString()
   });
-
   localStorage.setItem("quizHistory", JSON.stringify(history));
 }
 
@@ -106,20 +106,14 @@ function startNewQuiz() {
 function viewHistory() {
   const historyList = document.getElementById("history-list");
   historyList.innerHTML = "";
-
   history.forEach((item, index) => {
     const li = document.createElement("li");
-    li.textContent = `${index + 1}. ${item.quizTitle} - ${item.score} (${item.date})`;
+    li.textContent = ${index + 1}. ${item.quizTitle} - ${item.score} (${item.date});
     historyList.appendChild(li);
   });
 
   document.getElementById("history-section").style.display = "block";
 }
 
-function clearHistory() {
-  localStorage.removeItem("quizHistory");
-  history = [];
-  viewHistory();
-}
-
+// Initial load
 window.onload = loadQuestion;
