@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.nav-links a {
+  color: #ccc;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #03a9f4;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  background: linear-gradient(135deg, #03a9f4, #8e44ad);
+  border-radius: 15px;
+  margin: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.tagline {
+  background: #03a9f4;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.hero-content p.description {
+  font-size: 1.2rem;
+}
+
+.hero-image img {
+  max-width: 300px;
+  border-radius: 15px;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.skills {
+  margin-top: 1rem;
+}
+
+.skills span {
+  background: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #222;
+  padding: 2rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  background: #03a9f4;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+
+.contact-form button {
+  background: #03a9f4;
+  color: #000;
+  padding: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+}

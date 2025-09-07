@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel Wishlist & Contact Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <header>
+    <h1>Travel Wishlist & Contact Hub</h1>
+    <nav>
+      <button class="tab active" data-tab="gallery">Gallery</button>
+      <button class="tab" data-tab="wishlist">Wishlist</button>
+      <button class="tab" data-tab="contacts">Contact</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Gallery -->
+    <section id="gallery" class="view">
+      <h2>Travel Inspirations</h2>
+      <div id="galleryGrid" class="grid gallery"></div>
+    </section>
+
+    <!-- Wishlist / To-Do -->
+    <section id="wishlist" class="view hidden">
+      <h2>Dream Destinations</h2>
+      <form id="todoForm">
+        <label>Destination</label>
+        <input id="tName" required placeholder="Paris, France">
+        <label>Priority</label>
+        <select id="tPriority">
+          <option>High</option>
+          <option selected>Medium</option>
+          <option>Low</option>
+        </select>
+        <label>Target Date</label>
+        <input id="tDue" type="date">
+        <button type="submit" class="btn">Add Destination</button>
+      </form>
+      <div id="todoList" class="grid" style="margin-top:1rem;"></div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contacts" class="view hidden">
+      <h2>Contact Travel Planner</h2>
+      <form id="contactForm">
+        <label>Name</label>
+        <input id="cName" required>
+        <label>Email</label>
+        <input id="cEmail" type="email" required>
+        <label>Phone</label>
+        <input id="cPhone" type="tel" required pattern="^[0-9]{10,15}$">
+        <div id="phoneError" class="error hidden">Please enter a valid phone number (10–15 digits).</div>
+        <label>Message</label>
+        <textarea id="cMsg" required rows="4"></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <div id="contactList" class="grid" style="margin-top:1rem;"></div>
+    </section>
+  </main>
+
+  <!-- External JS -->
+  <script src="task2.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sruthi Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo"></div>
+      <nav class="nav-links">
+        <a href="#about">HOME</a>
+        <a href="#education">ABOUT ME</a>
+        <a href="#experience"></a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hello!!!<br />I'm Kudupudi Sruthi</h1>
+      <p class="tagline">WEB DEVELOPER</p>
+      <p class="description">
+        APEXPLANET INTERNSHIP
+      </p>
+    </div>
+
+  </section>
+
+  <section id="about" class="section">
+    <h2>My Biography</h2>
+    <p>
+      I am currently pursuing a B.E. in Computer Science and Engineering at Sathyabama University, where I have developed a strong foundation in programming, data structures, and software development principles. My true passion lies in web development and technological innovations that solve real-world problems. I enjoy transforming creative ideas into fully functional, interactive digital solutions that are both user-friendly and efficient.
+      I am particularly fascinated by front-end development, where I use HTML, CSS, and JavaScript to design responsive and visually appealing websites. At the same time, I am equally driven to understand back-end technologies, databases, and server management, which allow me to create robust applications with seamless data handling.
+      Beyond coding, I stay updated with the latest industry trends, frameworks, and best practices, continuously exploring new tools like React, Node.js, and Firebase to expand my technical expertise. My goal is to contribute to innovative projects that leverage technology for meaningful impact, while constantly learning and growing as a developer.
+    </p>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Java DSA</span>
+      <span>Python</span>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" onclick="openProject('task1.html')">Task 1</div>
+      <div class="project-card" onclick="openProject('task2.html')">Task 2</div>
+      <div class="project-card" onclick="openProject('Task3.html')">Task 3</div>
+      <div class="project-card" onclick="openProject('Task4.html')">Task 4</div>
+      <div class="project-card" onclick="openProject('menswearindex.html')">Task 5</div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="return handleContact(event)">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="form-note" id="formNote" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sruthi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

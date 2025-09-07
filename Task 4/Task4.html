@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Gadgets Store</title>
+  <link rel="stylesheet" href="Task4.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>Tech Gadgets Store</h1>
+    <p>Latest Gadgets for Tech Enthusiasts</p>
+  </header>
+
+  <!-- Filters & Sorting -->
+  <section class="controls">
+    <div class="filter">
+      <h3>Filter</h3>
+      <label>
+        Category:
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="smartphone">Smartphone</option>
+          <option value="laptop">Laptop</option>
+          <option value="accessory">Accessory</option>
+        </select>
+      </label>
+
+      <label>
+        Price Range:
+        <select id="priceFilter">
+          <option value="all">All</option>
+          <option value="0-5000">Below ₹5000</option>
+          <option value="5000-20000">₹5000 - ₹20000</option>
+          <option value="20000-50000">₹20000 - ₹50000</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="sort">
+      <h3>Sort By</h3>
+      <select id="sortOptions">
+        <option value="default">Default</option>
+        <option value="priceLow">Price: Low → High</option>
+        <option value="priceHigh">Price: High → Low</option>
+        <option value="rating">Rating: High → Low</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="product-grid" id="productGrid">
+    <!-- Dynamic Products will appear here -->
+  </main>
+
+  <script src="task4.js"></script>
+</body>
+
+</html>
