@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClothCraze – Your Fashion Companion</title>
+  <link rel="stylesheet" href="Task5.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="top-bar">
+      <h1 class="logo">ClothCraze</h1>
+      <input type="search" id="search" placeholder="Search for clothes…" oninput="searchProducts()" />
+      <button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+    </div>
+    <nav class="category-links">
+      <a href="#men">Men</a>
+      <a href="#women">Women</a>
+      <a href="#kids">Kids</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="men" class="category-section">
+      <h2>Men</h2>
+      <div id="men-products" class="products-grid"></div>
+    </section>
+
+    <section id="women" class="category-section">
+      <h2>Women</h2>
+      <div id="women-products" class="products-grid"></div>
+    </section>
+
+    <section id="kids" class="category-section">
+      <h2>Kids</h2>
+      <div id="kids-products" class="products-grid"></div>
+    </section>
+  </main>
+
+  <aside id="cart-panel" class="cart-panel hidden">
+    <button class="close-cart" onclick="toggleCart()">✖</button>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
+  </aside>
+
+  <footer class="footer">
+    <p>ClothCraze © 2025 | <a href="mailto:support@clothcraze.com">support@clothcraze.com</a></p>
+    <p>Follow us on 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">Facebook</a>
+    </p>
+  </footer>
+
+  <script src="Task5.js"></script>
+</body>
+</html>
